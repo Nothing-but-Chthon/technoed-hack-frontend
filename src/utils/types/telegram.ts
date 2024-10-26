@@ -41,6 +41,9 @@ export interface IWebApp {
     backgroundColor: string;
     BackButton: {
         isVisible: boolean;
+        show: () => void;
+        hide: () => void;
+        onClick: (callback: () => void) => void;
     };
     MainButton: {
         text: string;

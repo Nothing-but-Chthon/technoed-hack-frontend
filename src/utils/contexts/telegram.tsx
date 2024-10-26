@@ -70,6 +70,11 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
                     disable: () => {},
                     setParams: () => {}
                 },
+                BackButton: {
+                    show: () => {},
+                    hide: () => {},
+                    onClick: () => {}
+                },
                 disableVerticalSwipes: () => {}
             };
 
