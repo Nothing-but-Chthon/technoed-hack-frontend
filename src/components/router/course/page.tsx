@@ -76,7 +76,7 @@ export default function Course() {
                     </div>
                 </CardContent>
                 <CardFooter>
-                    <Button className='bg-buttonColor rounded text-md'>
+                    <Button className='bg-buttonColor text-buttonTextColor rounded text-md'>
                         Записаться на демо урок
                     </Button>
                 </CardFooter>
