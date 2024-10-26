@@ -9,6 +9,7 @@ function App() {
 
     useEffect(() => {
         telegram.webApp?.BackButton.hide();
+        telegram.webApp?.MainButton.hide();
     }, [telegram]);
 
     return (
