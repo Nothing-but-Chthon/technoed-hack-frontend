@@ -5,21 +5,21 @@ import { useEffect } from 'react';
 export default function Layout() {
     const telegram = useTelegram();
     useEffect(() => {
-        console.log(telegram);
-
-        const color = telegram.webApp?.headerColor;
-        const background = telegram.webApp?.backgroundColor;
-
-        if (color) {
-            document.documentElement.style.setProperty('--primary', color);
+        const themeParams = telegram.webApp?.themeParams;
+        if (!themeParams) {
+            return;
         }
-        if (background) {
-            document.documentElement.style.setProperty('--background', background);
+
+        for (const key of Object.keys(themeParams)) {
+            document.documentElement.style.setProperty(
+                `--${key}`,
+                themeParams[key as keyof typeof themeParams]
+            );
         }
     }, [telegram]);
 
     return (
-        <div className='px-2 pb-4'>
+        <div className='px-2 pb-4 bg-bgColor text-textColor'>
             <Outlet />
         </div>
     );

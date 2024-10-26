@@ -10,46 +10,19 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             colors: {
-                background: 'var(--background)',
-                foreground: 'hsl(var(--foreground))',
-                card: {
-                    DEFAULT: 'hsl(var(--card))',
-                    foreground: 'hsl(var(--card-foreground))'
-                },
-                popover: {
-                    DEFAULT: 'hsl(var(--popover))',
-                    foreground: 'hsl(var(--popover-foreground))'
-                },
-                primary: {
-                    DEFAULT: 'var(--primary)',
-                    foreground: 'hsl(var(--primary-foreground))'
-                },
-                secondary: {
-                    DEFAULT: 'hsl(var(--secondary))',
-                    foreground: 'hsl(var(--secondary-foreground))'
-                },
-                muted: {
-                    DEFAULT: 'hsl(var(--muted))',
-                    foreground: 'hsl(var(--muted-foreground))'
-                },
-                accent: {
-                    DEFAULT: 'hsl(var(--accent))',
-                    foreground: 'hsl(var(--accent-foreground))'
-                },
-                destructive: {
-                    DEFAULT: 'hsl(var(--destructive))',
-                    foreground: 'hsl(var(--destructive-foreground))'
-                },
-                border: 'hsl(var(--border))',
-                input: 'hsl(var(--input))',
-                ring: 'hsl(var(--ring))',
-                chart: {
-                    1: 'hsl(var(--chart-1))',
-                    2: 'hsl(var(--chart-2))',
-                    3: 'hsl(var(--chart-3))',
-                    4: 'hsl(var(--chart-4))',
-                    5: 'hsl(var(--chart-5))'
-                }
+                accentText: 'var(--accent_text_color)',
+                bgColor: 'var(--bg_color)',
+                buttonColor: 'var(--button_color)',
+                buttonTextColor: 'var(--button_text_color)',
+                destructiveTextColor: 'var(--destructive_text_color)',
+                headerBgColor: 'var(--header_bg_color)',
+                hintColor: 'var(--hint_color)',
+                linkColor: 'var(--link_color)',
+                secondaryBgColor: 'var(--secondary_bg_color)',
+                sectionBgColor: 'var(--section_bg_color)',
+                sectionHeaderTextColor: 'var(--section_header_text_color)',
+                subtitleTextColor: 'var(--subtitle_text_color)',
+                textColor: 'var(--text_color)'
             }
         }
     },

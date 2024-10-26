@@ -17,19 +17,19 @@ export default function Course() {
     return (
         <div className='flex flex-col gap-y-4'>
             <h1 className='font-medium text-2xl'>Введение в цифровое проектирование одежды</h1>
-            <Separator className='bg-primary h-3' />
+            <Separator className='bg-accentText h-3' />
 
             <Card>
                 <CardHeader>
                     <CardDescription className='flex justify-between'>
                         <span className='font-semibold text-xl inline-flex items-center gap-x-1'>
-                            <FaCalendarAlt className='text-primary' /> 30 Ноября
+                            <FaCalendarAlt className='text-accentText' /> 30 Ноября
                         </span>
                         <span className='font-semibold text-xl inline-flex items-center gap-x-1'>
-                            <FaRegClock className='text-primary' />1 Месяц
+                            <FaRegClock className='text-accentText' />1 Месяц
                         </span>
                         <span className='font-semibold text-xl inline-flex items-center gap-x-1'>
-                            <FaLocationDot className='text-primary' /> Казань
+                            <FaLocationDot className='text-accentText' /> Казань
                         </span>
                     </CardDescription>
                 </CardHeader>

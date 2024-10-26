@@ -13,28 +13,28 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
 
     useEffect(() => {
         const app = (window as any).Telegram?.WebApp;
-        if (app) {
+        if (app && app.initData) {
             app.ready();
             setWebApp(app);
         } else {
             const lp = {
                 themeParams: {
-                    accentTextColor: '#6ab2f2',
-                    bgColor: '#17212b',
-                    buttonColor: '#5288c1',
-                    buttonTextColor: '#ffffff',
-                    destructiveTextColor: '#ec3942',
-                    headerBgColor: '#17212b',
-                    hintColor: '#708499',
-                    linkColor: '#6ab3f3',
-                    secondaryBgColor: '#232e3c',
-                    sectionBgColor: '#17212b',
-                    sectionHeaderTextColor: '#6ab3f3',
-                    subtitleTextColor: '#708499',
-                    textColor: '#f5f5f5'
+                    bg_color: '#212121',
+                    text_color: '#ffffff',
+                    hint_color: '#aaaaaa',
+                    link_color: '#8774e1',
+                    button_color: '#8774e1',
+                    button_text_color: '#ffffff',
+                    secondary_bg_color: '#0f0f0f',
+                    header_bg_color: '#212121',
+                    accent_text_color: '#8774e1',
+                    section_bg_color: '#212121',
+                    section_header_text_color: '#aaaaaa',
+                    subtitle_text_color: '#aaaaaa',
+                    destructive_text_color: '#e53935'
                 },
-                initData: {
-                    user: JSON.stringify({
+                initDataUnsafe: {
+                    user: {
                         id: 99281932,
                         first_name: 'Andrew',
                         last_name: 'Rogue',
@@ -42,10 +42,34 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
                         language_code: 'en',
                         is_premium: true,
                         allows_write_to_pm: true
-                    })
+                    }
                 },
+                initData: JSON.stringify({
+                    user: {
+                        id: 99281932,
+                        first_name: 'Andrew',
+                        last_name: 'Rogue',
+                        username: 'rogue',
+                        language_code: 'en',
+                        is_premium: true,
+                        allows_write_to_pm: true
+                    }
+                }),
                 version: '8',
-                platform: 'tdesktop'
+                platform: 'tdesktop',
+                MainButton: {
+                    text: 'MainBtn',
+                    color: 'BLACK',
+                    textColor: 'WHITE',
+                    isVisible: false,
+                    isProgressVisible: false,
+                    isActive: false,
+                    show: () => {},
+                    hide: () => {},
+                    enable: () => {},
+                    disable: () => {},
+                    setParams: () => {}
+                }
             };
 
             setWebApp(lp as unknown as IWebApp);
