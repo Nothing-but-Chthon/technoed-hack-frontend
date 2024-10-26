@@ -7,6 +7,12 @@ import { useEffect } from 'react';
 import { useTelegram } from '@/utils/contexts/telegram.tsx';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button.tsx';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger
+} from '@/components/ui/accordion.tsx';
 
 export default function Course() {
     const telegram = useTelegram();
@@ -35,7 +41,7 @@ export default function Course() {
                         </span>
                     </CardDescription>
                 </CardHeader>
-                <CardContent className='flex flex-col gap-y-2'>
+                <CardContent className='flex flex-col gap-y-4'>
                     <h2 className='text-xl font-semibold'>Описание</h2>
                     <p>
                         Для кого курс: · для лиц, имеющих базовое представление о принципах
@@ -74,9 +80,37 @@ export default function Course() {
                             </span>
                         </div>
                     </div>
+
+                    <div>
+                        <h2 className='text-xl font-semibold'>ЧАВО???</h2>
+                        <Accordion type='single' collapsible className='block'>
+                            <AccordionItem value='item-1'>
+                                <AccordionTrigger className='text-left'>
+                                    Это хорошо?
+                                </AccordionTrigger>
+                                <AccordionContent className='text-left'>Да.</AccordionContent>
+                            </AccordionItem>
+
+                            <AccordionItem value='item-2'>
+                                <AccordionTrigger className='text-left'>
+                                    Если мне не понравится, мне вернут деньги?
+                                </AccordionTrigger>
+                                <AccordionContent className='text-left'>Да.</AccordionContent>
+                            </AccordionItem>
+
+                            <AccordionItem value='item-3'>
+                                <AccordionTrigger className='text-left'>
+                                    Что делать, если я не нашел ответ на свой вопрос?
+                                </AccordionTrigger>
+                                <AccordionContent className='text-left'>
+                                    Нам жаль это слышать.
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
                 </CardContent>
                 <CardFooter>
-                    <Button className='bg-buttonColor text-buttonTextColor rounded text-md'>
+                    <Button className='block bg-buttonColor text-buttonTextColor rounded text-md'>
                         Записаться на демо урок
                     </Button>
                 </CardFooter>
