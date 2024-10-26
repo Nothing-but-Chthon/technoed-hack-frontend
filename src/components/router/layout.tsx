@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 export default function Layout() {
     const telegram = useTelegram();
     useEffect(() => {
+        console.log(telegram);
+
         const color = telegram.webApp?.headerColor;
         const background = telegram.webApp?.backgroundColor;
 
