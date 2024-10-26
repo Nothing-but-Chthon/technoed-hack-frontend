@@ -1,14 +1,18 @@
 import { useTelegram } from '@/utils/contexts/telegram.tsx';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button.tsx';
 
 function App() {
     const telegram = useTelegram();
+    console.log(telegram);
 
     return (
         <div className='flex flex-col gap-y-4'>
             {JSON.stringify(telegram)}
-            <Link to='/course/1'>Страница курса</Link>
-            <Link to='/faq'>Страница чаво</Link>
+
+            <Button asChild className='bg-buttonColor rounded'>
+                <Link to='/course/1'>Страница курса</Link>
+            </Button>
         </div>
     );
 }

@@ -43,9 +43,9 @@ export default function Course() {
 
                     <Teachers />
 
-                    <FAQ />
-
                     <Reviews />
+
+                    <FAQ />
                 </CardContent>
                 <CardFooter>
                     <Button className='block bg-buttonColor text-buttonTextColor rounded text-md'>
