@@ -4,6 +4,7 @@ import {
     AccordionItem,
     AccordionTrigger
 } from '@/components/ui/accordion.tsx';
+import { Link } from 'react-router-dom';
 
 export default function FAQ() {
     return (
@@ -26,7 +27,11 @@ export default function FAQ() {
                     <AccordionTrigger className='text-left'>
                         Что делать, если я не нашел ответ на свой вопрос?
                     </AccordionTrigger>
-                    <AccordionContent className='text-left'>Нам жаль это слышать.</AccordionContent>
+                    <AccordionContent className='text-left'>
+                        <Link to='/help' className='underline text-linkColor'>
+                            Напишите нам и мы подскажем ответ!
+                        </Link>
+                    </AccordionContent>
                 </AccordionItem>
             </Accordion>
         </div>

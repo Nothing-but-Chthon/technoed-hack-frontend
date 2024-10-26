@@ -1,5 +1,6 @@
 import { FaCalendarAlt, FaRegClock } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
+import { Button } from '@/components/ui/button.tsx';
 
 export default function Courses() {
     return (
@@ -18,6 +19,10 @@ export default function Courses() {
                     </span>
                 </div>
                 <p>кринж кринж кринж кринж кринж кринж кринж кринж кринж кринж </p>
+
+                <div className='w-full flex justify-end'>
+                    <Button className='bg-buttonColor rounded'>Подробнее</Button>
+                </div>
             </div>
         </div>
     );
