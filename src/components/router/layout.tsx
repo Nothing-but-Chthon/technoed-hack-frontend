@@ -19,7 +19,7 @@ export default function Layout() {
     }, [telegram]);
 
     return (
-        <div className='px-2 pb-4 bg-bgColor text-textColor'>
+        <div className='px-2 py-4 bg-bgColor text-textColor'>
             <Outlet />
         </div>
     );

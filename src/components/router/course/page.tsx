@@ -5,6 +5,7 @@ import { FaRegClock } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { useEffect } from 'react';
 import { useTelegram } from '@/utils/contexts/telegram.tsx';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export default function Course() {
     const telegram = useTelegram();
@@ -22,18 +23,19 @@ export default function Course() {
             <Card>
                 <CardHeader>
                     <CardDescription className='flex justify-between'>
-                        <span className='font-semibold text-xl inline-flex items-center gap-x-1'>
+                        <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
                             <FaCalendarAlt className='text-accentText' /> 30 Ноября
                         </span>
-                        <span className='font-semibold text-xl inline-flex items-center gap-x-1'>
+                        <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
                             <FaRegClock className='text-accentText' />1 Месяц
                         </span>
-                        <span className='font-semibold text-xl inline-flex items-center gap-x-1'>
+                        <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
                             <FaLocationDot className='text-accentText' /> Казань
                         </span>
                     </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className='flex flex-col gap-y-2'>
+                    <h2 className='text-xl font-semibold'>Описание</h2>
                     <p>
                         Для кого курс: · для лиц, имеющих базовое представление о принципах
                         построения конструкций швейных изделий без использования средств
@@ -54,6 +56,23 @@ export default function Course() {
                         Стоимость: 15 000руб. (возможна рассрочка) Формат: офлайн (занятия 1 раз в
                         неделю)
                     </p>
+
+                    <div className='flex flex-col gap-y-4'>
+                        <h2 className='text-xl font-semibold'>Преподаватели</h2>
+                        <div className='w-full flex flex-col items-center gap-y-2'>
+                            <Avatar className='w-1/3 h-1/3'>
+                                <AvatarImage src='https://github.com/shadcn.png' />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar>
+                            <span className='text-lg'>Морти Риков</span>
+                            <span>
+                                Лидер компетенции JS, руководитель технологического Хаба Сбера в
+                                Казани с опытом в разработке 16 лет, преподаватель курса
+                                «Cross-platform developer on JavaScript» и опциональных модулей
+                                &#34;Electron&#34; и &#34;React-native&#34;
+                            </span>
+                        </div>
+                    </div>
                 </CardContent>
             </Card>
         </div>
