@@ -1,4 +1,4 @@
-import Review from '@/components/router/course/review.tsx';
+import Review from '@/components/router/courses/(id)/review.tsx';
 
 export default function Reviews() {
     return (
