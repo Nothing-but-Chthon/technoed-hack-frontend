@@ -31,6 +31,10 @@ function App() {
             <Button asChild className='bg-buttonColor rounded'>
                 <Link to='/events/1'>Страница мероприятия</Link>
             </Button>
+
+            <Button asChild className='bg-buttonColor rounded'>
+                <Link to='/teachers'>Все преподаватели</Link>
+            </Button>
         </div>
     );
 }

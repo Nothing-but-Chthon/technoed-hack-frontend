@@ -9,6 +9,7 @@ import Layout from '@/components/router/layout.tsx';
 import Courses from '@/components/router/courses/page.tsx';
 import Event from '@/components/router/events/(id)/page.tsx';
 import Events from '@/components/router/events/page.tsx';
+import Teachers from '@/components/router/teachers/page.tsx';
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: '/events/:id',
                 element: <Event />
+            },
+            {
+                path: '/teachers',
+                element: <Teachers />
             }
         ]
     }
