@@ -21,7 +21,7 @@ export default function Layout() {
     }, [telegram]);
 
     return (
-        <div className='px-2 py-4 bg-bgColor text-textColor'>
+        <div className='px-2 py-4 bg-bgColor text-textColor min-h-full h-full'>
             <Outlet />
         </div>
     );

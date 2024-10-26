@@ -8,6 +8,7 @@ function App() {
         <div className='flex flex-col gap-y-4'>
             {JSON.stringify(telegram)}
             <Link to='/course/1'>Страница курса</Link>
+            <Link to='/faq'>Страница чаво</Link>
         </div>
     );
 }

@@ -17,3 +17,8 @@
     --subtitle_text_color: #aaaaaa;
     --text_color: #ffffff;
 }
+
+:root, html, body, #root {
+    min-height: 100%;
+    height: 100%;
+}

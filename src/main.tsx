@@ -6,6 +6,7 @@ import { TelegramProvider } from '@/utils/contexts/telegram.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Course from '@/components/router/course/page.tsx';
 import Layout from '@/components/router/layout.tsx';
+import Faq from '@/components/router/faq/page.tsx';
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <Course />
+            },
+            {
+                path: '/faq',
+                element: <Faq />
             }
         ]
     }
