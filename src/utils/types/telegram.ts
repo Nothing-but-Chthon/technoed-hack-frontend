@@ -7,6 +7,7 @@ export interface ITelegramUser {
 }
 
 export interface IWebApp {
+    disableVerticalSwipes: () => void;
     initData: string;
     initDataUnsafe: {
         query_id: string;

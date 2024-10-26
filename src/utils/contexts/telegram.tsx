@@ -69,7 +69,8 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
                     enable: () => {},
                     disable: () => {},
                     setParams: () => {}
-                }
+                },
+                disableVerticalSwipes: () => {}
             };
 
             setWebApp(lp as unknown as IWebApp);

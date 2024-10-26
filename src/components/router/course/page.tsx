@@ -1,11 +1,12 @@
 import { Separator } from '@/components/ui/separator.tsx';
-import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '@/components/ui/card';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaRegClock } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { useEffect } from 'react';
 import { useTelegram } from '@/utils/contexts/telegram.tsx';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button.tsx';
 
 export default function Course() {
     const telegram = useTelegram();
@@ -74,6 +75,11 @@ export default function Course() {
                         </div>
                     </div>
                 </CardContent>
+                <CardFooter>
+                    <Button className='bg-buttonColor rounded text-md'>
+                        Записаться на демо урок
+                    </Button>
+                </CardFooter>
             </Card>
         </div>
     );
