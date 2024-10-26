@@ -10,7 +10,7 @@ export default function Course() {
     const telegram = useTelegram();
 
     useEffect(() => {
-        telegram.webApp?.MainButton.setParams({ text: 'AAAAAA' });
+        telegram.webApp?.MainButton.setParams({ text: 'Записаться' });
         telegram.webApp?.MainButton.show();
     }, [telegram]);
 

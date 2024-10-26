@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 export default {
     darkMode: ['class'],
     content: ['./index.html', './src/**/*.{ts,tsx}'],
@@ -10,7 +10,7 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             colors: {
-                background: 'hsl(var(--background))',
+                background: 'var(--background)',
                 foreground: 'hsl(var(--foreground))',
                 card: {
                     DEFAULT: 'hsl(var(--card))',
@@ -21,7 +21,7 @@ export default {
                     foreground: 'hsl(var(--popover-foreground))'
                 },
                 primary: {
-                    DEFAULT: '#fbcc1f',
+                    DEFAULT: 'var(--primary)',
                     foreground: 'hsl(var(--primary-foreground))'
                 },
                 secondary: {
