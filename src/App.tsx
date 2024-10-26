@@ -17,7 +17,19 @@ function App() {
             {JSON.stringify(telegram)}
 
             <Button asChild className='bg-buttonColor rounded'>
+                <Link to='/courses'>Все курсы</Link>
+            </Button>
+
+            <Button asChild className='bg-buttonColor rounded'>
                 <Link to='/courses/1'>Страница курса</Link>
+            </Button>
+
+            <Button asChild className='bg-buttonColor rounded'>
+                <Link to='/events'>Все мероприятия</Link>
+            </Button>
+
+            <Button asChild className='bg-buttonColor rounded'>
+                <Link to='/events/1'>Страница мероприятия</Link>
             </Button>
         </div>
     );

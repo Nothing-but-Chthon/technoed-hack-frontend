@@ -9,7 +9,7 @@ import {
     SelectValue
 } from '@/components/ui/select';
 
-export default function Courses() {
+export default function Events() {
     return (
         <div className='flex flex-col gap-y-4'>
             <div className='flex'>
@@ -25,17 +25,6 @@ export default function Courses() {
                 <SelectContent>
                     <SelectItem value='light'>Казань</SelectItem>
                     <SelectItem value='dark'>Набережные Челны</SelectItem>
-                </SelectContent>
-            </Select>
-
-            <Select>
-                <SelectTrigger>
-                    <SelectValue placeholder='Типы курсов' />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value='light'>Взрослым</SelectItem>
-                    <SelectItem value='dark'>Детям</SelectItem>
-                    <SelectItem value='dark1'>Юридическим лицам</SelectItem>
                 </SelectContent>
             </Select>
 
