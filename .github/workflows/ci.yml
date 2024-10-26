@@ -19,7 +19,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t technoed-hack-frontend:latest .
+          docker build --build-arg FULLCHAIN="${{ secrets.CERTIFICATE }}" \
+                       --build-arg PRIVKEY="${{ secrets.PRIVATE_KEY }}" \
+                       -t technoed-hack-frontend:latest .
         
       - name: Stop existing container
         run: |
