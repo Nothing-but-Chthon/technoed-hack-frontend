@@ -1,0 +1,7 @@
+services:
+  nginx:
+    image: technoed-hack-frontend:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
