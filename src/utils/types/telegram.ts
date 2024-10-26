@@ -42,6 +42,11 @@ export interface IWebApp {
         isVisible: boolean;
         isProgressVisible: boolean;
         isActive: boolean;
+        show: () => void;
+        hide: () => void;
+        enable: () => void;
+        disable: () => void;
+        setParams: (params: { text?: string; has_shine_effect?: boolean }) => void;
     };
     HapticFeedback: any;
 }
