@@ -30,7 +30,7 @@ export default function Event() {
 
     useEffect(() => {
         axiosInstance
-            .get(`/course/${course_id}`)
+            .get(`/courses/${course_id}`)
             .then((value: AxiosResponse<CourseType>) => setCourse(value.data));
     }, []);
 

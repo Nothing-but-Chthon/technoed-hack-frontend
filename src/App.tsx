@@ -16,23 +16,23 @@ function App() {
         <div className='flex flex-col gap-y-4'>
             {JSON.stringify(telegram)}
 
-            <Button asChild className='bg-buttonColor rounded'>
+            <Button asChild className='bg-buttonColor text-buttonTextColor rounded'>
                 <Link to='/courses'>Все курсы</Link>
             </Button>
 
-            <Button asChild className='bg-buttonColor rounded'>
+            <Button asChild className='bg-buttonColor text-buttonTextColor rounded'>
                 <Link to='/courses/1'>Страница курса</Link>
             </Button>
 
-            <Button asChild className='bg-buttonColor rounded'>
+            <Button asChild className='bg-buttonColor text-buttonTextColor rounded'>
                 <Link to='/events'>Все мероприятия</Link>
             </Button>
 
-            <Button asChild className='bg-buttonColor rounded'>
+            <Button asChild className='bg-buttonColor text-buttonTextColor rounded'>
                 <Link to='/events/1'>Страница мероприятия</Link>
             </Button>
 
-            <Button asChild className='bg-buttonColor rounded'>
+            <Button asChild className='bg-buttonColor text-buttonTextColor rounded'>
                 <Link to='/teachers'>Все преподаватели</Link>
             </Button>
         </div>

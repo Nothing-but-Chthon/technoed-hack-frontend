@@ -27,7 +27,7 @@ export default function Course({ course }: CourseProps) {
             <p>{course.short_description}</p>
 
             <div className='w-full flex justify-end'>
-                <Button asChild className='bg-buttonColor rounded'>
+                <Button asChild className='bg-buttonColor text-buttonTextColor rounded'>
                     <Link to={`/courses/${course.id}`}>Подробнее</Link>
                 </Button>
             </div>
