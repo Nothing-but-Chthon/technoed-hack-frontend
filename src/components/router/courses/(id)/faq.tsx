@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/accordion.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { useTelegram } from '@/utils/contexts/telegram.tsx';
+import { VITE_TG_BOT } from '@/utils/config.ts';
 
 export default function FAQ() {
     const telegram = useTelegram();
@@ -33,9 +34,7 @@ export default function FAQ() {
                     <AccordionContent className='text-left'>
                         <Button
                             onClick={() => {
-                                telegram.webApp?.openTelegramLink(
-                                    `https://t.me/${import.meta.env.VITE_TG_BOT}`
-                                );
+                                telegram.webApp?.openTelegramLink(`${VITE_TG_BOT}`);
                             }}
                             className='underline text-linkColor'
                         >
