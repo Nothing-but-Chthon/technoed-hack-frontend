@@ -19,8 +19,12 @@ export default function Events() {
     useEffect(() => {
         axiosInstance
             .get('/events')
-            .then((value: AxiosResponse<CourseType[]>) => setEvents(value.data));
+            .then((value: AxiosResponse<string>) => setEvents(JSON.parse(value.data)));
     }, []);
+
+    if (!events) {
+        return <div>Loading</div>;
+    }
 
     return (
         <div className='flex flex-col gap-y-4'>

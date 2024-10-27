@@ -24,7 +24,7 @@ export default function Course({ course }: CourseProps) {
                     <FaLocationDot className='text-accentText' /> {course.location}
                 </span>
             </div>
-            <p>{course.description}</p>
+            <p>{course.short_description}</p>
 
             <div className='w-full flex justify-end'>
                 <Button asChild className='bg-buttonColor rounded'>
