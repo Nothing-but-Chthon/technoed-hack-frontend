@@ -6,6 +6,7 @@ interface TeacherProps {
 }
 
 export default function Teacher({ teacher }: TeacherProps) {
+    console.log(JSON.stringify(teacher));
     return (
         <div className='w-full flex flex-col items-center gap-y-2 bg-bgColor p-4 rounded'>
             <Avatar className='w-1/3 h-1/3'>
