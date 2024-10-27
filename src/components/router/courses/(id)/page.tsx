@@ -28,9 +28,6 @@ export default function Course() {
     const telegram = useTelegram();
 
     useEffect(() => {
-        telegram.webApp?.MainButton.setParams({ text: 'Записаться' });
-        telegram.webApp?.MainButton.show();
-
         telegram.webApp?.BackButton.onClick(() => navigate('/'));
         telegram.webApp?.BackButton.show();
     }, [telegram]);
@@ -38,10 +35,23 @@ export default function Course() {
     const [course, setCourse] = useState<CourseType | null>(null);
 
     useEffect(() => {
-        axiosInstance
-            .get(`/courses/${course_id}`)
-            .then((value: AxiosResponse<string>) => setCourse(JSON.parse(value.data)));
+        axiosInstance.get(`/courses/${course_id}`).then((value: AxiosResponse<string>) => {
+            setCourse(JSON.parse(value.data));
+        });
     }, []);
+
+    useEffect(() => {
+        if (course) {
+            const text =
+                course.completed > 0
+                    ? 'Оставить отзыв'
+                    : course.closed
+                      ? 'Записаться на тестирование'
+                      : 'Записаться на курс';
+            telegram.webApp?.MainButton.setParams({ text: text });
+            telegram.webApp?.MainButton.show();
+        }
+    }, [course]);
 
     console.log(course);
 
@@ -80,7 +90,10 @@ export default function Course() {
                     <FAQ />
                 </CardContent>
                 <CardFooter>
-                    <Button className='block bg-buttonColor text-buttonTextColor rounded text-md'>
+                    <Button
+                        className='block bg-buttonColor text-buttonTextColor rounded text-md'
+                        disabled={course.completed > 0}
+                    >
                         Записаться на демо урок
                     </Button>
                 </CardFooter>

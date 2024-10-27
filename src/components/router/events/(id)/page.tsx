@@ -34,6 +34,10 @@ export default function Event() {
             .then((value: AxiosResponse<CourseType>) => setCourse(value.data));
     }, []);
 
+    if (!course) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className='flex flex-col gap-y-4'>
             <h1 className='font-medium text-2xl'>{course?.name}</h1>
@@ -59,7 +63,7 @@ export default function Event() {
                 <CardContent className='flex flex-col gap-y-4'>
                     <Description description={course?.description as string} />
 
-                    <Teachers teachers={course?.teachers ? course.teachers : []} />
+                    <Teachers teachers={JSON.parse(course.teacher_info)} />
 
                     <FAQ />
                 </CardContent>
