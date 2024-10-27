@@ -4,9 +4,12 @@ import {
     AccordionItem,
     AccordionTrigger
 } from '@/components/ui/accordion.tsx';
-import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button.tsx';
+import { useTelegram } from '@/utils/contexts/telegram.tsx';
 
 export default function FAQ() {
+    const telegram = useTelegram();
+
     return (
         <div>
             <h2 className='text-xl font-semibold'>ЧАВО???</h2>
@@ -28,9 +31,16 @@ export default function FAQ() {
                         Что делать, если я не нашел ответ на свой вопрос?
                     </AccordionTrigger>
                     <AccordionContent className='text-left'>
-                        <Link to='/help' className='underline text-linkColor'>
+                        <Button
+                            onClick={() => {
+                                telegram.webApp?.openTelegramLink(
+                                    `https://t.me/${import.meta.env.VITE_TG_BOT}`
+                                );
+                            }}
+                            className='underline text-linkColor'
+                        >
                             Напишите нам и мы подскажем ответ!
-                        </Link>
+                        </Button>
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>

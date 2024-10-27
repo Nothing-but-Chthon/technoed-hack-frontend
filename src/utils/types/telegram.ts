@@ -8,6 +8,7 @@ export interface ITelegramUser {
 
 export interface IWebApp {
     disableVerticalSwipes: () => void;
+    openTelegramLink: (url: string) => void;
     initData: string;
     initDataUnsafe: {
         query_id: string;

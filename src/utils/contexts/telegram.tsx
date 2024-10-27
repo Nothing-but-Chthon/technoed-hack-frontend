@@ -75,7 +75,10 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
                     hide: () => {},
                     onClick: () => {}
                 },
-                disableVerticalSwipes: () => {}
+                disableVerticalSwipes: () => {},
+                openTelegramLink: (link: string) => {
+                    console.log(`Opened link : ${link}`);
+                }
             };
 
             setWebApp(lp as unknown as IWebApp);
