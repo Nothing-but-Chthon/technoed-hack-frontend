@@ -9,25 +9,36 @@ import { axiosInstance } from '@/lib/utils.ts';
 
 export default function Teachers() {
     const [teachers, setTeachers] = useState<TeacherType[]>([]);
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         axiosInstance
             .get('/teachers')
-            .then((value: AxiosResponse<TeacherType[]>) => setTeachers(value.data));
+            .then((value: AxiosResponse<string>) => setTeachers(JSON.parse(value.data)));
     }, []);
+
+    if (!teachers) {
+        return <div>Loading</div>;
+    }
 
     return (
         <div className='flex flex-col gap-y-4'>
             <div className='flex'>
-                <Input className='bg-bgColor border-none' />
+                <Input
+                    className='bg-bgColor border-none'
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                />
                 <div className='h-10 w-10 bg-buttonColor flex justify-center items-center'>
                     <IoSearchSharp className='text-buttonTextColor w-7 h-7' />
                 </div>
             </div>
 
-            {teachers.map((teacher, idx) => (
-                <Teacher key={idx} teacher={teacher} />
-            ))}
+            {teachers
+                .filter((teacher) => teacher.name.toLowerCase().includes(searchValue.toLowerCase()))
+                .map((teacher, idx) => (
+                    <Teacher key={idx} teacher={teacher} />
+                ))}
         </div>
     );
 }
