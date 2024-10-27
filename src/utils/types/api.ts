@@ -20,6 +20,8 @@ export interface ReviewType {
 }
 
 export interface CourseType {
+    closed: boolean;
+    completed: number;
     id: number;
     name: string;
     start_date: string;
