@@ -30,6 +30,6 @@ export interface CourseType {
     type: string;
     link: string;
     summarized_reviews: string;
-    teachers: TeacherType[];
+    teacher_info: string;
     reviews: ReviewType[];
 }

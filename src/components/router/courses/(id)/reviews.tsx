@@ -10,7 +10,7 @@ export default function Reviews({ reviews }: ReviewsProps) {
         <div className='flex flex-col gap-y-4'>
             <h2 className='text-xl font-semibold'>Отзывы</h2>
 
-            {reviews.map((review, idx) => (
+            {reviews.slice(5).map((review, idx) => (
                 <Review key={idx} review={review} />
             ))}
         </div>

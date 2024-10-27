@@ -18,7 +18,7 @@ import FAQ from '@/components/router/courses/(id)/faq.tsx';
 import Reviews from '@/components/router/courses/(id)/reviews.tsx';
 import { useNavigate, useParams } from 'react-router-dom';
 import Organization from '@/components/router/courses/(id)/organization.tsx';
-import { CourseType } from '@/utils/types/api.ts';
+import { CourseType, TeacherType } from '@/utils/types/api.ts';
 import { axiosInstance } from '@/lib/utils.ts';
 import { AxiosResponse } from 'axios';
 
@@ -39,35 +39,43 @@ export default function Course() {
 
     useEffect(() => {
         axiosInstance
-            .get(`/course/${course_id}`)
-            .then((value: AxiosResponse<CourseType>) => setCourse(value.data));
+            .get(`/courses/${course_id}`)
+            .then((value: AxiosResponse<string>) => setCourse(JSON.parse(value.data)));
     }, []);
+
+    console.log(course);
+
+    if (!course) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className='flex flex-col gap-y-4'>
-            <h1 className='font-medium text-2xl'>Введение в цифровое проектирование одежды</h1>
+            <h1 className='font-medium text-2xl'>{course.name}</h1>
             <Separator className='bg-accentText h-3' />
 
             <Card>
                 <CardHeader>
                     <CardDescription className='flex justify-between'>
                         <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
-                            <FaCalendarAlt className='text-accentText' /> 30 Ноября
+                            <FaCalendarAlt className='text-accentText' />
+                            {course.start_date}
                         </span>
                         <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
-                            <FaRegClock className='text-accentText' />1 Месяц
+                            <FaRegClock className='text-accentText' />
+                            {course.duration}
                         </span>
                         <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
-                            <FaLocationDot className='text-accentText' /> Казань
+                            <FaLocationDot className='text-accentText' /> {course.location}
                         </span>
                     </CardDescription>
                 </CardHeader>
                 <CardContent className='flex flex-col gap-y-4'>
-                    <Description description={course?.description as string} />
+                    <Description description={course.description} />
 
-                    <Teachers teachers={course?.teachers ? course.teachers : []} />
+                    <Teachers teachers={JSON.parse(course.teacher_info) as TeacherType[]} />
 
-                    <Reviews />
+                    <Reviews reviews={course.reviews} />
 
                     <FAQ />
                 </CardContent>
