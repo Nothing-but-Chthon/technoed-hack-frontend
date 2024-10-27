@@ -31,7 +31,7 @@ export default function Event() {
     useEffect(() => {
         axiosInstance
             .get(`/courses/${course_id}`)
-            .then((value: AxiosResponse<CourseType>) => setCourse(value.data));
+            .then((value: AxiosResponse<CourseType>) => setCourse(JSON.parse(value.data)));
     }, []);
 
     if (!course) {
@@ -40,7 +40,7 @@ export default function Event() {
 
     return (
         <div className='flex flex-col gap-y-4'>
-            <h1 className='font-medium text-2xl'>{course?.name}</h1>
+            <h1 className='font-medium text-2xl'>{course.name}</h1>
             <Separator className='bg-accentText h-3' />
 
             <Card>
@@ -48,20 +48,20 @@ export default function Event() {
                     <CardDescription className='flex justify-between'>
                         <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
                             <FaCalendarAlt className='text-accentText' />
-                            {course?.start_date}
+                            {course.start_date}
                         </span>
                         <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
                             <FaRegClock className='text-accentText' />
-                            {course?.duration}
+                            {course.duration}
                         </span>
                         <span className='font-semibold text-lg inline-flex items-center gap-x-1'>
                             <FaLocationDot className='text-accentText' />
-                            {course?.location}
+                            {course.location}
                         </span>
                     </CardDescription>
                 </CardHeader>
                 <CardContent className='flex flex-col gap-y-4'>
-                    <Description description={course?.description as string} />
+                    <Description description={course.description as string} />
 
                     <Teachers teachers={JSON.parse(course.teacher_info)} />
 
