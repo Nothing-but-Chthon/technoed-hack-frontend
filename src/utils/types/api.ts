@@ -16,7 +16,7 @@ export interface UserType {
 export interface ReviewType {
     author: string;
     text: string;
-    grade: number;
+    grade?: number;
 }
 
 export interface CourseType {

@@ -85,7 +85,7 @@ export default function Course() {
 
                     <Teachers teachers={JSON.parse(course.teacher_info) as TeacherType[]} />
 
-                    <Reviews reviews={course.reviews} />
+                    <Reviews summarized={course.summarized_reviews} reviews={course.reviews} />
 
                     <FAQ />
                 </CardContent>
