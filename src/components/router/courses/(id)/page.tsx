@@ -9,17 +9,21 @@ import {
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaRegClock } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTelegram } from '@/utils/contexts/telegram.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import Description from '@/components/router/courses/(id)/description.tsx';
 import Teachers from '@/components/router/courses/(id)/teachers.tsx';
 import FAQ from '@/components/router/courses/(id)/faq.tsx';
 import Reviews from '@/components/router/courses/(id)/reviews.tsx';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Organization from '@/components/router/courses/(id)/organization.tsx';
+import { CourseType } from '@/utils/types/api.ts';
+import { axiosInstance } from '@/lib/utils.ts';
+import { AxiosResponse } from 'axios';
 
 export default function Course() {
+    const { course_id } = useParams();
     const navigate = useNavigate();
     const telegram = useTelegram();
 
@@ -30,6 +34,14 @@ export default function Course() {
         telegram.webApp?.BackButton.onClick(() => navigate('/'));
         telegram.webApp?.BackButton.show();
     }, [telegram]);
+
+    const [course, setCourse] = useState<CourseType | null>(null);
+
+    useEffect(() => {
+        axiosInstance
+            .get(`/course/${course_id}`)
+            .then((value: AxiosResponse<CourseType>) => setCourse(value.data));
+    }, []);
 
     return (
         <div className='flex flex-col gap-y-4'>
@@ -51,9 +63,9 @@ export default function Course() {
                     </CardDescription>
                 </CardHeader>
                 <CardContent className='flex flex-col gap-y-4'>
-                    <Description />
+                    <Description description={course?.description as string} />
 
-                    <Teachers />
+                    <Teachers teachers={course?.teachers ? course.teachers : []} />
 
                     <Reviews />
 

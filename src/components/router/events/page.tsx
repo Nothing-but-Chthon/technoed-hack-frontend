@@ -8,8 +8,20 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
+import { useEffect, useState } from 'react';
+import { axiosInstance } from '@/lib/utils.ts';
+import { AxiosResponse } from 'axios';
+import { CourseType } from '@/utils/types/api.ts';
 
 export default function Events() {
+    const [events, setEvents] = useState<CourseType[]>([]);
+
+    useEffect(() => {
+        axiosInstance
+            .get('/events')
+            .then((value: AxiosResponse<CourseType[]>) => setEvents(value.data));
+    }, []);
+
     return (
         <div className='flex flex-col gap-y-4'>
             <div className='flex'>
@@ -28,9 +40,9 @@ export default function Events() {
                 </SelectContent>
             </Select>
 
-            <Course />
-            <Course />
-            <Course />
+            {events.map((e, idx) => (
+                <Course key={idx} course={e} />
+            ))}
         </div>
     );
 }

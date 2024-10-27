@@ -24,7 +24,7 @@ const router = createBrowserRouter([
                 element: <Courses />
             },
             {
-                path: '/courses/:id',
+                path: '/courses/:course_id',
                 element: <Course />
             },
             {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
                 element: <Events />
             },
             {
-                path: '/events/:id',
+                path: '/events/:course_id',
                 element: <Event />
             },
             {
