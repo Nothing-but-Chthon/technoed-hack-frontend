@@ -15,6 +15,7 @@ import { AxiosResponse } from 'axios';
 
 export default function Courses() {
     const [courses, setCourses] = useState<CourseType[]>([]);
+    const [selectedCity, setSelectedCity] = useState<string>();
 
     useEffect(() => {
         axiosInstance
@@ -34,30 +35,26 @@ export default function Courses() {
                     <IoSearchSharp className='text-buttonTextColor w-7 h-7' />
                 </div>
             </div>
-            <Select>
+            <Select
+                value={selectedCity}
+                onValueChange={(v) => {
+                    setSelectedCity(v);
+                }}
+            >
                 <SelectTrigger>
                     <SelectValue placeholder='Все города' />
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectItem value='light'>Казань</SelectItem>
-                    <SelectItem value='dark'>Набережные Челны</SelectItem>
+                    <SelectItem value='Казань'>Казань</SelectItem>
+                    <SelectItem value='Набережные Челны'>Набережные Челны</SelectItem>
                 </SelectContent>
             </Select>
 
-            <Select>
-                <SelectTrigger>
-                    <SelectValue placeholder='Типы курсов' />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value='light'>Взрослым</SelectItem>
-                    <SelectItem value='dark'>Детям</SelectItem>
-                    <SelectItem value='dark1'>Юридическим лицам</SelectItem>
-                </SelectContent>
-            </Select>
-
-            {courses.map((e, idx) => (
-                <Course key={idx} course={e} />
-            ))}
+            {courses
+                .filter((c) => (selectedCity ? c.location === selectedCity : true))
+                .map((e, idx) => (
+                    <Course key={idx} course={e} />
+                ))}
         </div>
     );
 }

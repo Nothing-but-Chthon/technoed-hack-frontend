@@ -14,6 +14,7 @@ import { AxiosResponse } from 'axios';
 import { CourseType } from '@/utils/types/api.ts';
 
 export default function Events() {
+    const [selectedCity, setSelectedCity] = useState<string>();
     const [events, setEvents] = useState<CourseType[]>([]);
 
     useEffect(() => {
@@ -34,19 +35,26 @@ export default function Events() {
                     <IoSearchSharp className='text-buttonTextColor w-7 h-7' />
                 </div>
             </div>
-            <Select>
+            <Select
+                value={selectedCity}
+                onValueChange={(v) => {
+                    setSelectedCity(v);
+                }}
+            >
                 <SelectTrigger>
                     <SelectValue placeholder='Все города' />
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectItem value='light'>Казань</SelectItem>
-                    <SelectItem value='dark'>Набережные Челны</SelectItem>
+                    <SelectItem value='Казань'>Казань</SelectItem>
+                    <SelectItem value='Набережные Челны'>Набережные Челны</SelectItem>
                 </SelectContent>
             </Select>
 
-            {events.map((e, idx) => (
-                <Course key={idx} course={e} />
-            ))}
+            {events
+                .filter((c) => (selectedCity ? c.location === selectedCity : true))
+                .map((e, idx) => (
+                    <Course key={idx} course={e} />
+                ))}
         </div>
     );
 }
