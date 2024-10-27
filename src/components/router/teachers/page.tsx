@@ -6,10 +6,19 @@ import { useEffect, useState } from 'react';
 import { TeacherType } from '@/utils/types/api.ts';
 import { AxiosResponse } from 'axios';
 import { axiosInstance } from '@/lib/utils.ts';
+import { useNavigate } from 'react-router-dom';
+import { useTelegram } from '@/utils/contexts/telegram.tsx';
 
 export default function Teachers() {
     const [teachers, setTeachers] = useState<TeacherType[]>([]);
     const [searchValue, setSearchValue] = useState('');
+    const navigate = useNavigate();
+    const telegram = useTelegram();
+
+    useEffect(() => {
+        telegram.webApp?.BackButton.onClick(() => navigate('/'));
+        telegram.webApp?.BackButton.show();
+    }, [telegram]);
 
     useEffect(() => {
         axiosInstance

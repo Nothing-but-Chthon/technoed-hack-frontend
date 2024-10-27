@@ -12,10 +12,20 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '@/lib/utils.ts';
 import { AxiosResponse } from 'axios';
 import { CourseType } from '@/utils/types/api.ts';
+import { useNavigate } from 'react-router-dom';
+import { useTelegram } from '@/utils/contexts/telegram.tsx';
 
 export default function Events() {
     const [selectedCity, setSelectedCity] = useState<string>();
     const [events, setEvents] = useState<CourseType[]>([]);
+
+    const navigate = useNavigate();
+    const telegram = useTelegram();
+
+    useEffect(() => {
+        telegram.webApp?.BackButton.onClick(() => navigate('/'));
+        telegram.webApp?.BackButton.show();
+    }, [telegram]);
 
     useEffect(() => {
         axiosInstance
