@@ -15,11 +15,11 @@ To run this application locally:
 npm install
 ```
 
-3. Create `.env.local` file and fill it as in `.env.example`:
+3. Change [`/src/utils/config.ts`](/src/utils/config.ts) if needed
 
 ```
-VITE_BACKEND_URL=http://localhost:8080
-VITE_TG_BOT=хтонь_бот
+export const VITE_BACKEND_URL = 'https://chthon.servebeer.com/api';
+export const VITE_TG_BOT = 'https://t.me/chton_test_bot';
 ```
 
 4. Run in development mode
